@@ -1,23 +1,14 @@
 {
   "data":[
-    [
-      "1",
-      "Satou",
-      "Satou",
-      "Accountant",
-      "Tokyo",
-      "28th Nov 08",
-      "$162,700"
-    ],
-    [
-      "Angelica",
-      "Ramos",
-      "Chief Executive Officer (CEO)",
-      "London",
-      "9th Oct 09",
-      "Satou",
-      "$1,200,000"
-    ]
+    {
+      "Id":"1",
+      "Dni":"54545465",
+      "AssigmentDate":"12\/08\/2018",
+      "FirstName":"Jhon",
+      "LastName":"Doe",
+      "JobTitle":"Operador",
+      "Observation":"Ninguna"
+    }
 
   ]
 }
