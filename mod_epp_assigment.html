@@ -464,7 +464,7 @@
                                           
                                           <div class="row form-group">
                                               <div class="col col-md-3">
-                                                  <select id=name="CompanyId" name="CompanyId" id="SelectLm" class="form-control-sm form-control">
+                                                  <select id="CompanyId" name="CompanyId" class="form-control-sm form-control">
                                                       <option value="0">Empresa</option>
                                                       <option value="1">Option #1</option>
                                                       <option value="2">Option #2</option>
@@ -474,7 +474,7 @@
                                                   </select>
                                               </div>
                                               <div class="col-md-3">
-                                                  <select id="ProjectID" name="ProjectID" id="SelectLm" class="form-control-sm form-control">
+                                                  <select id="ProjectId" name="ProjectId" class="form-control-sm form-control">
                                                       <option value="0">Proyecto</option>
                                                       <option value="1">Option #1</option>
                                                       <option value="2">Option #2</option>
@@ -484,7 +484,7 @@
                                                   </select>
                                               </div>
                                               <div class="col-md-3">
-                                                  <select id="DateRange" name="DateRange" id="SelectLm" class="form-control-sm form-control">
+                                                  <select id="DateRange" name="DateRange" class="form-control-sm form-control">
                                                       <option value="0">Periodo</option>
                                                       <option value="1">Option #1</option>
                                                       <option value="2">Option #2</option>
@@ -695,12 +695,22 @@
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <script>
-  $(document).ready( function () {
+  $(document).ready( function () 
+  {
+
+   
+
+    
+
+    
+
       var table=$('#table_id').DataTable(
 
         
 
           {
+
+
             "language": {
                   "url": "datatable.json"
                   
@@ -711,10 +721,13 @@
               
               //Add data to the request by manipulating the data object (no return from the function):
               "ajax": {
-                "url": "test.json",
+                "url": "json.php",
                 "data": function ( d ) {
-                    d.extra_search = $('#CompanyId').val();
-                }
+                  d.CompanyId= $("#CompanyId").val();
+                  d.ProjectId= $("#ProjectId").val();
+                  d.Month="5";
+                },
+                "type": "POST"
                 
               },
                 "columns": [
@@ -725,12 +738,21 @@
                   { "data": "LastName" },
                   { "data": "JobTitle"},
                   { "data": "Observation"}
-                ]
+                ],
+                "processing": true,
+                //Mensaje Inicial
+                "initComplete": function(settings, json) {
+
+$('.dataTables_empty').html('<div class="alert alert-warning" role="alert">Seleccione una Empresa, Proyecto y Periodo.</div>');
+
+}
           }
       );
       
       //Hidign ID Column
-      table.column(0).visible(false);
+      //table.column(0).visible(false);
+
+      $(".table-data3 tbody tr:last-child td:last-child").html("asd");
   
 
 var RowData = null;
@@ -794,17 +816,58 @@ $('#table_id tbody').on( 'click', 'tr', function ()
     
   });
 
+  var CompanyId=$("#CompanyId");
+      var ProjectId=$("#ProjectId");
+      var DateRange=$("#DateRange");
+
   //Load Data
   $('#btnEppLoad').click( function () 
   {
-    table.ajax.reload();
+  
+
+    if(CompanyId.val()==0 | ProjectId.val()==0 | DateRange.val()==0)
+    {
+      swal("Oops!", "Primero debes seleccionar una empresa, proyecto y periodo!", "warning");
+      EppAssigmentNoFieldsSelect();
+      
+    }
+    else
+    {
+      EppAssigmentRemoveNoFieldsSelect();
+      table.ajax.reload();
+    }
+    
   });
 
+  CompanyId.change(function() {
+      $(this).removeClass('query-req');
+  });
+
+  function EppAssigmentNoFieldsSelect()
+  {
+    $("#CompanyId").addClass('query-req');
+    $("#ProjectId").addClass('query-req');
+    $("#DateRange").addClass('query-req');
+  }
+
+  function EppAssigmentRemoveNoFieldsSelect()
+  {
+    $("#CompanyId").removeClass('query-req');
+    $("#ProjectId").removeClass('query-req');
+    $("#DateRange").removeClass('query-req');
+  }
+
+  
+
+
+
+  
 
 
   //View device
   $('#btnEppRead').click( function () 
   {
+      
    
       if(RowData!=null)
       {

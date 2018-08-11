@@ -3,8 +3,8 @@
 {
 	"sProcessing":     "Procesando...",
 	"sLengthMenu":     "Mostrar _MENU_ registros",
-	"sZeroRecords":    "No se encontraron resultados",
-	"sEmptyTable":     "<br><br><br>No se dispone de datos, para la consulta solicitada<br><br><br>",
+	"sZeroRecords":    "<div class=\"alert alert-warning\" role=\"alert\">No se encontraron resultados.</div>",
+	"sEmptyTable":     "<div class=\"alert alert-warning\" role=\"alert\">No se dispone de datos, para la consulta solicitada</div>",
 	"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
 	"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
 	"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
