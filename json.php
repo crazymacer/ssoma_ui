@@ -17,8 +17,8 @@ if (!empty($_POST["ProjectId"]))
             $InfoData1["Id"] = $i;
             $InfoData1["Dni"] = "54545465";
             $InfoData1["AssigmentDate"] = "12/08/2018";
-            $InfoData1["FirstName"] = "Jhon";
-            $InfoData1["LastName"] = "Doe";
+            $InfoData1["FullName"] = "Juan carlos Palomino Quispe";
+            $InfoData1["Company"] = "AHREN Contratistas Generales S.A.C.";
             $InfoData1["JobTitle"] = "Operador";
             $InfoData1["Observation"] = "Ninguna";
             $data[] = $InfoData1;

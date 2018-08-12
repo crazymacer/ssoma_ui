@@ -28,6 +28,7 @@
   <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
   <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
   <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="vendor/datepicker/datepicker.css" rel="stylesheet" media="all">
   <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
   <!-- DataTable -->
@@ -414,10 +415,14 @@
           <div class="container-fluid">
             <div class="row">
 
-                <div class="col-md-12">
-                    <div class="au-breadcrumb-content">
+              <div class="col-md-12">
+
+
+                <div class="card">
+                  <div class="card-header">
+                    <strong class="card-title"><div class="au-breadcrumb-content">
                         <div class="au-breadcrumb-left">
-                            <span class="au-breadcrumb-span">Estás aquí:</span>
+                           
                             <ul class="list-unstyled list-inline au-breadcrumb__list">
                                 <li class="list-inline-item active">
                                     <a href="#">Home</a>
@@ -435,16 +440,7 @@
                             </ul>
                         </div>
                         
-                    </div>
-                </div>
-
-
-              <div class="col-md-12">
-
-
-                <div class="card">
-                  <div class="card-header">
-                    <strong class="card-title">Registro de EPPs</strong>
+                    </div></strong>
                   </div>
 
                   <div class="card-body">
@@ -453,115 +449,107 @@
 
                       <div class="container-fluid">
                             
-                          
+                          <div class="row">
+                              <div class="col-md-12">
+                                
+                                      <div class="table-data__tool">
+                                          <div class="table-data__tool-left">
+                                              
+                                            
+                                            
+                                          </div>
+                                          <div class="table-data__tool-right">
+    
+                                              <button id="BtnEppAssigmentCreate" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#ModalEppCreate">
+                                                  <i class="fa fa-plus-circle"></i>&nbsp; Nuevo registro</button>
+    
+                                              <button id="BtnEppAssigmentRead" type="button" class="btn btn-secondary btn-sm">
+                                                  <i class="fa fa-list"></i>&nbsp; Ver Registro</button>
+                                              
+                                              <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-secondary btn-sm ">
+                                                  <i class="fa fa-edit"></i>&nbsp; Editar Registro</button>
+                                              <button id="BtnEppAssigmentDelete" type="button" class="btn btn-secondary btn-sm">
+                                                  <i class="fa fa-trash"></i>&nbsp;Eliminar Registro</button>
+                                             
+                                            
+                                          </div>
+                                      </div>
+                              </div>
+                          </div>
         
                           <div class="row m-t-30">
-                              <div class="col-md-12">
-                                  <!-- DATA TABLE-->
-                                  
-                                  <div class="table-data__tool">
-                                      <div class="table-data__tool-left">
+
+                              <div class="col-md-12" style="margin-bottom: 30px;">
+                                    
                                           
-                                          <div class="row form-group">
-                                              <div class="col col-md-3">
-                                                  <select id="CompanyId" name="CompanyId" class="form-control-sm form-control">
-                                                      <option value="0">Empresa</option>
-                                                      <option value="1">Option #1</option>
-                                                      <option value="2">Option #2</option>
-                                                      <option value="3">Option #3</option>
-                                                      <option value="4">Option #4</option>
-                                                      <option value="5">Option #5</option>
-                                                  </select>
+                                  <div class="row">
+                                      <div class="col-md-3" style="margin-bottom: 10px;">
+                                          <select id="DtEppAssigmentCompanyFilter"  class="form-control select2">
+                                              <option value="0">Empresa</option>
+                                              <option value="1">AHREN Contratistas Generales S.A.C.</option>
+                                              <option value="2">Constructora AHREN S.A.</option>
+                                          </select>
+                                      </div>
+                                      <div class="col-md-3" style="margin-bottom: 10px;">
+                                          <select id="DtEppAssigmentProjectFilter" class=" form-control select2">
+                                            <option value="0">Proyecto</option>
+                                            <option value="1">SAP 14 Luricocha</option>
+                                            <option value="2">Primarias Uripa</option>
+                                          </select>
+                                      </div>
+                                 
+                                      
+                                 
+                                      
+                                      <div class="col-md-2" style="margin-bottom: 10px;">
+                                          <div class="input-group ">
+                                              <div class="input-group-addon">
+                                                  <label for="dpd1"><i class="fa fa-calendar-alt"></i></label>
                                               </div>
-                                              <div class="col-md-3">
-                                                  <select id="ProjectId" name="ProjectId" class="form-control-sm form-control">
-                                                      <option value="0">Proyecto</option>
-                                                      <option value="1">Option #1</option>
-                                                      <option value="2">Option #2</option>
-                                                      <option value="3">Option #3</option>
-                                                      <option value="4">Option #4</option>
-                                                      <option value="5">Option #5</option>
-                                                  </select>
-                                              </div>
-                                              <div class="col-md-3">
-                                                  <select id="DateRange" name="DateRange" class="form-control-sm form-control">
-                                                      <option value="0">Periodo</option>
-                                                      <option value="1">Option #1</option>
-                                                      <option value="2">Option #2</option>
-                                                      <option value="3">Option #3</option>
-                                                      <option value="4">Option #4</option>
-                                                      <option value="5">Option #5</option>
-                                                  </select>
-                                              </div>
-                                              <div class="col col-md-3">
-                                                  <button id="btnEppLoad" type="button" class="btn btn-secondary btn-sm">
-                                                      <i class="fa fa-plus-circle"></i>&nbsp; Mostrar</button>
-                                              </div>
+                                              <input type="text" class="input-sm form-control-sm form-control" placeholder="Fecha Inicial" value="" name="dpd1" id="dpd1">
                                           </div>
                                           
-                                        
-                                        
+
                                       </div>
-                                      <div class="table-data__tool-right">
-
-                                          <button id="btnEppCreate" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#ModalEppCreate">
-                                              <i class="fa fa-plus-circle"></i>&nbsp; Nuevo registro</button>
-
-                                          <button id="btnEppRead" type="button" class="btn btn-secondary btn-sm">
-                                              <i class="fa fa-list"></i>&nbsp; Ver Registro</button>
-                                          
-                                          <button id="btnEppUpdate" type="button" class="btn btn-secondary btn-sm ">
-                                              <i class="fa fa-edit"></i>&nbsp; Editar Registro</button>
-                                          <button id="btnEppDelete" type="button" class="btn btn-secondary btn-sm">
-                                              <i class="fa fa-trash"></i>&nbsp;Eliminar Registro</button>
-                                         
-                                         
+                                      <div class="col-md-2" style="margin-bottom: 10px;">
+                                          <div class="input-group ">
+                                              <div class="input-group-addon">
+                                                  <i class="fa fa-calendar-alt"></i>
+                                              </div>
+                                              <input type="text" class="input-sm form-control-sm form-control" placeholder="Fecha Final" value="" id="dpd2">
+                                          </div>
+                                      </div>
+                                      <div class="col col-md-2" style="margin-bottom: 10px;">
+                                          <button id="BtnEppAssigmentLoadData" type="button" class="btn btn-secondary btn-sm btn-block">
+                                              <i class="fa fa-list"></i>&nbsp; Mostrar Registros</button>
                                       </div>
                                   </div>
-
-
+                                  
+                                
+                                
+                            
+                            
+                          </div>
+                            
+                              <div class="col-md-12">
+                                  <!-- DATA TABLE-->
                                   <div class="table-responsive m-b-40">
 
 
-                                          <table id="table_id" class="table table-borderless table-data3">
+                                          <table id="DtEppAssigment" class="table table-borderless table-data3">
                                                   <thead>
                                                       <tr>
                                                           <th>ID</th>
                                                           <th>DNI</th>
                                                           <th>Fecha de Entrega</th>
-                                                          <th>Nombres</th>
-                                                          <th>Apellidos</th>
+                                                          <th>Nombres y Apellidos</th>
+                                                          <th>Empresa</th>
                                                           <th>Cargo</th>
                                                           <th class="text-center">Observación</th>
                                                           
                                                       </tr>
                                                   </thead>
                                                   <tbody>
-<!--
-                                                      <tr>
-                                                          <td>1</td>
-                                                          <td>45126596</td>
-                                                          <td>12/08/2018</td>
-                                                          <td>Jhon</td>
-                                                          <td>Doe Smith</td>
-                                                          <td>Operario I</td>
-                                                          <td class="text-left">Cumplimiento con la norma de seguridad </td>
-                                                          
-                                                      </tr>
-                                                      <tr>
-                                                          <td>2</td>
-                                                          <td>65854161</td>
-                                                          <td>10/08/2018</td>
-                                                          <td>Jane</td>
-                                                          <td>Black Door</td>
-                                                          <td>Auxiliar de Obra</td>
-                                                          <td class="text-left">Reposición de implementos</td>
-                                                          
-                                                      </tr>
-                                                      -->
-
-
-
                                                   </tbody>
                                                   </table>
 
@@ -656,255 +644,57 @@
 </div>
 <!-- end modal static -->
 
-
-
-
-
-
-
-
-
-
-
-  <!-- Jquery JS-->
+  <!-- Jquery JS -->
   <script src="vendor/jquery-3.2.1.min.js"></script>
-  <!-- Bootstrap JS-->
+  <!-- Bootstrap JS -->
   <script src="vendor/bootstrap-4.1/popper.min.js"></script>
   <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-  <!-- Vendor JS       -->
-  <script src="vendor/slick/slick.min.js">
-  </script>
+  <!-- Vendor JS -->
+  <script src="vendor/slick/slick.min.js"></script>
   <script src="vendor/wow/wow.min.js"></script>
   <script src="vendor/animsition/animsition.min.js"></script>
-  <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-  </script>
+  <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
   <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-  <script src="vendor/counter-up/jquery.counterup.min.js">
-  </script>
+  <script src="vendor/counter-up/jquery.counterup.min.js"></script>
   <script src="vendor/circle-progress/circle-progress.min.js"></script>
   <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-  <script src="vendor/select2/select2.min.js">
-  </script>
-
-  <!-- Main JS-->
-  <script src="js/main.js"></script>
-
-
-  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+  <script src="vendor/select2/select2.min.js"></script>
+  <script src="vendor/datepicker/bootstrap-datepicker.js"></script>
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" type="text/javascript" charset="utf8" ></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/site.js"></script>
 
-<script>
-  $(document).ready( function () 
-  {
-
-   
-
-    
-
-    
-
-      var table=$('#table_id').DataTable(
-
-        
-
-          {
-
-
-            "language": {
-                  "url": "datatable.json"
-                  
-              },
-
-              //Hide enttries dropdown
-              "lengthChange": false, 
-              
-              //Add data to the request by manipulating the data object (no return from the function):
-              "ajax": {
-                "url": "json.php",
-                "data": function ( d ) {
-                  d.CompanyId= $("#CompanyId").val();
-                  d.ProjectId= $("#ProjectId").val();
-                  d.Month="5";
-                },
-                "type": "POST"
-                
-              },
-                "columns": [
-                  { "data": "Id" },
-                  { "data": "Dni"},
-                  { "data": "AssigmentDate"},
-                  { "data": "FirstName" },
-                  { "data": "LastName" },
-                  { "data": "JobTitle"},
-                  { "data": "Observation"}
-                ],
-                "processing": true,
-                //Mensaje Inicial
-                "initComplete": function(settings, json) {
-
-$('.dataTables_empty').html('<div class="alert alert-warning" role="alert">Seleccione una Empresa, Proyecto y Periodo.</div>');
-
-}
-          }
-      );
-      
-      //Hidign ID Column
-      //table.column(0).visible(false);
-
-      $(".table-data3 tbody tr:last-child td:last-child").html("asd");
+  <script>
   
-
-var RowData = null;
-
-//Check if DataTable is Empty
-function IsDatatableEmpty()
-{
-  if ( ! table.data().count() ) 
-  {
-    return true;
-  }
-  else
-  {
-    return false;
-  }
-}
-
-//Initializing buttons
-$( "#btnEppRead" ).attr( "disabled", "true" );
-$( "#btnEppUpdate" ).attr( "disabled", "true" );
-$( "#btnEppDelete" ).attr( "disabled", "true" );
-
-
-//On clic device-datatable row
-$('#table_id tbody').on( 'click', 'tr', function () 
-  {
-
-    
-
-    //select row
-    if ( $(this).hasClass('selected') ) 
-    {
-      if(!IsDatatableEmpty())
-      {
-        $(this).removeClass('selected');
-        RowData=null;
-        $( "#btnEppRead" ).attr( "disabled", "true" );
-        $( "#btnEppUpdate" ).attr( "disabled", "true" );
-        $( "#btnEppDelete" ).attr( "disabled", "true" );
-      }
-    }
-    else 
-    {
-      if(!IsDatatableEmpty())
-      {
-        table.$('tr.selected').removeClass('selected');
-        $(this).addClass('selected');
-        RowData=table.row( this ).data();
-
-
-        $( "#btnEppRead" ).removeAttr( "disabled");
-        $( "#btnEppUpdate" ).removeAttr( "disabled");
-        $( "#btnEppDelete" ).removeAttr( "disabled");
-
-
-        //Show data on console
-        console.log(  RowData);
-      }
-      
-    }
-    
-  });
-
-  var CompanyId=$("#CompanyId");
-      var ProjectId=$("#ProjectId");
-      var DateRange=$("#DateRange");
-
-  //Load Data
-  $('#btnEppLoad').click( function () 
-  {
-  
-
-    if(CompanyId.val()==0 | ProjectId.val()==0 | DateRange.val()==0)
-    {
-      swal("Oops!", "Primero debes seleccionar una empresa, proyecto y periodo!", "warning");
-      EppAssigmentNoFieldsSelect();
-      
-    }
-    else
-    {
-      EppAssigmentRemoveNoFieldsSelect();
-      table.ajax.reload();
-    }
-    
-  });
-
-  CompanyId.change(function() {
-      $(this).removeClass('query-req');
-  });
-
-  function EppAssigmentNoFieldsSelect()
-  {
-    $("#CompanyId").addClass('query-req');
-    $("#ProjectId").addClass('query-req');
-    $("#DateRange").addClass('query-req');
-  }
-
-  function EppAssigmentRemoveNoFieldsSelect()
-  {
-    $("#CompanyId").removeClass('query-req');
-    $("#ProjectId").removeClass('query-req');
-    $("#DateRange").removeClass('query-req');
-  }
-
-  
-
-
-
-  
-
-
-  //View device
-  $('#btnEppRead').click( function () 
-  {
-      
-   
-      if(RowData!=null)
-      {
-          swal("Genial!", "Detalles del Equipo con API.", "success");
-          console.log( RowData ); 
-      }
-      else
-      {
-          swal("Oops!", "Debes seleccionar un registro.", "warning");
-          console.log( RowData ); 
-      }
-   
-  });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  } );
  
-</script>
+  var nowTemp = new Date();
+var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+ 
+var checkin = $('#dpd1').datepicker({
+  onRender: function(date) {
+    return date.valueOf() < now.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  if (ev.date.valueOf() > checkout.date.valueOf()) {
+    var newDate = new Date(ev.date)
+    newDate.setDate(newDate.getDate() + 1);
+    checkout.setValue(newDate);
+  }
+  checkin.hide();
+  $('#dpd2')[0].focus();
+}).data('datepicker');
+var checkout = $('#dpd2').datepicker({
+  onRender: function(date) {
+    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+  }
+}).on('changeDate', function(ev) {
+  checkout.hide();
+}).data('datepicker');
 
+$('.select2').select2();
+
+  </script>
 </body>
-
 </html>
-<!-- end document-->

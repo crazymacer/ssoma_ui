@@ -1158,7 +1158,7 @@ section {
 }
 
 .input-group-addon {
-    padding: .5rem .75rem;
+    padding: .3rem .75rem;
     margin-bottom: 0;
     font-size: 1rem;
     font-weight: 400;
@@ -1171,7 +1171,9 @@ section {
     -moz-border-radius: .25rem;
     border-radius: .25rem;
 }
-
+.input-group-addon label{
+margin-bottom: 0; 
+}
 /* ----- Header ----- */
 .header-desktop {
     background: #f5f5f5;
