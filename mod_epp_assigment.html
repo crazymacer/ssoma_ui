@@ -28,8 +28,12 @@
   <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
   <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
   <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-  <link href="vendor/datepicker/datepicker.css" rel="stylesheet" media="all">
+  
+  <link href="vendor/datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" media="all">
+
   <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+  <link href="https://fonts.googleapis.com/css?family=Magra" rel="stylesheet">
 
   <!-- DataTable -->
   <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css"rel="stylesheet" type="text/css" >
@@ -496,32 +500,67 @@
                                             <option value="1">SAP 14 Luricocha</option>
                                             <option value="2">Primarias Uripa</option>
                                           </select>
-                                      </div>
-                                 
-                                      
-                                 
-                                      
-                                      <div class="col-md-2" style="margin-bottom: 10px;">
-                                          <div class="input-group ">
-                                              <div class="input-group-addon">
-                                                  <label for="dpd1"><i class="fa fa-calendar-alt"></i></label>
-                                              </div>
-                                              <input type="text" class="input-sm form-control-sm form-control" placeholder="Fecha Inicial" value="" name="dpd1" id="dpd1">
-                                          </div>
                                           
-
                                       </div>
-                                      <div class="col-md-2" style="margin-bottom: 10px;">
-                                          <div class="input-group ">
-                                              <div class="input-group-addon">
-                                                  <i class="fa fa-calendar-alt"></i>
+                                 
+                                      
+                                 
+                           
+     
+                                      <div class="col-md-4">
+                    
+                                          <div class="input-daterange input-group col-md-12" id="datepicker">
+                                              
+                                             <div class="row">
+                                                <span class="input-group-addon  col-md-3" style="font-size: 14px;" ><label for="start"><i class="fa fa-calendar-alt"></i> Desde</label></span>
+                                                <input type="text" class="input-sm form-control-sm form-control col-md-3" id="FromDate" name="FromDate" >
+                                                <span class="input-group-addon  col-md-3" style="font-size: 14px;"><i class="fa fa-calendar-alt"></i> Hasta</span>
+                                                <input type="text" class="input-sm form-control-sm form-control col-md-3" name="end" >
+                                             </div>
+                                             
+                                     
+                                          </div>
+                                       </div>
+
+
+
+<!--
+
+
+                                      <div class="input-daterange input-group" id="datepicker">
+                                          <div class="col-md-2" style="margin-bottom: 10px;">
+                                              <div class="input-group ">
+                                                  <div class="input-group-addon">
+                                                      <label for="dpd1"><i class="fa fa-calendar-alt"></i></label>
+                                                  </div>
+                                                  <input type="text" class="input-sm form-control-sm form-control" name="start" placeholder="Fecha Inicial"/>
                                               </div>
-                                              <input type="text" class="input-sm form-control-sm form-control" placeholder="Fecha Final" value="" id="dpd2">
+    
+                                          </div>
+                                          <div class="col-md-2" style="margin-bottom: 10px;">
+                                              <div class="input-group ">
+                                                  <div class="input-group-addon">
+                                                      <i class="fa fa-calendar-alt"></i>
+                                                  </div>
+                                                  <input type="text" class="input-sm form-control-sm form-control" name="end" placeholder="Fecha Final" />
+                                              </div>
                                           </div>
                                       </div>
+-->
+
+
+
+
+
+
+
+
+
+
+
                                       <div class="col col-md-2" style="margin-bottom: 10px;">
-                                          <button id="BtnEppAssigmentLoadData" type="button" class="btn btn-secondary btn-sm btn-block">
-                                              <i class="fa fa-list"></i>&nbsp; Mostrar Registros</button>
+                                          <button id="BtnEppAssigmentLoadData" type="button" class="btn btn-primary btn-sm btn-block">
+                                              <i class="fab fa-get-pocket"></i>&nbsp; Mostrar Registros</button>
                                       </div>
                                   </div>
                                   
@@ -555,6 +594,35 @@
 
                                   </div>
                                   <!-- END DATA TABLE-->
+
+
+
+
+
+
+    <div class="input-daterange input-group" id="datepicker">
+        <input type="text" class="input-sm form-control" name="start" placeholder="Fecha Inicial"/>
+        <span class="input-group-addon">to</span>
+        <input type="text" class="input-sm form-control" name="end" placeholder="Fecha Final" />
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                               </div>
                           </div>
                           
@@ -644,6 +712,8 @@
 </div>
 <!-- end modal static -->
 
+
+
   <!-- Jquery JS -->
   <script src="vendor/jquery-3.2.1.min.js"></script>
   <!-- Bootstrap JS -->
@@ -660,7 +730,10 @@
   <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="vendor/chartjs/Chart.bundle.min.js"></script>
   <script src="vendor/select2/select2.min.js"></script>
-  <script src="vendor/datepicker/bootstrap-datepicker.js"></script>
+
+  <script src="vendor/datepicker/js/bootstrap-datepicker.js"></script>
+  <script src="vendor/datepicker/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
+
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" type="text/javascript" charset="utf8" ></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="js/main.js"></script>
@@ -668,30 +741,18 @@
 
   <script>
   
- 
-  var nowTemp = new Date();
-var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
- 
-var checkin = $('#dpd1').datepicker({
-  onRender: function(date) {
-    return date.valueOf() < now.valueOf() ? 'disabled' : '';
-  }
-}).on('changeDate', function(ev) {
-  if (ev.date.valueOf() > checkout.date.valueOf()) {
-    var newDate = new Date(ev.date)
-    newDate.setDate(newDate.getDate() + 1);
-    checkout.setValue(newDate);
-  }
-  checkin.hide();
-  $('#dpd2')[0].focus();
-}).data('datepicker');
-var checkout = $('#dpd2').datepicker({
-  onRender: function(date) {
-    return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
-  }
-}).on('changeDate', function(ev) {
-  checkout.hide();
-}).data('datepicker');
+  $('#datepicker').datepicker(
+    {
+      format: 'dd/mm/yyyy',
+      language: 'es',
+      todayHighlight: true,
+      todayBtn: "linked",
+      autoclose: true
+});
+
+
+
+
 
 $('.select2').select2();
 
