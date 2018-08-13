@@ -497,7 +497,7 @@
                               </div>
 
                               <div class="col-12 col-md-10">
-                                <select name="EppAssigmentCompanyId" id="EppAssigmentCompanyId" class="form-control">
+                                <select name="Txt_EppAssigmentDetail_Edit_CompanyId" id="Txt_EppAssigmentDetail_Edit_CompanyId" class="form-control">
                                     <option value="0">Please select</option>
                                     <option value="1">Option #1</option>
                                     <option value="2">Option #2</option>
@@ -515,7 +515,7 @@
                               </div>
 
                               <div class="col-12 col-md-10">
-                                <select name="EppAssigmentProjectId" id="EppAssigmentProjectId" class="form-control">
+                                <select name="Txt_EppAssigmentDetail_Edit_ProjectId" id="Txt_EppAssigmentDetail_Edit_ProjectId" class="form-control">
                                     <option value="0">Please select</option>
                                     <option value="1">Option #1</option>
                                     <option value="2">Option #2</option>
@@ -533,7 +533,7 @@
                               </div>
 
                               <div class="col-12 col-md-10">
-                                <select name="EppAssigmentEmployeeId" id="EppAssigmentEmployeeId" class="form-control">
+                                <select name="Txt_EppAssigmentDetail_Edit_EmployeeId" id="Txt_EppAssigmentDetail_Edit_EmployeeId" class="form-control">
                                     <option value="0">Please select</option>
                                     <option value="1">Option #1</option>
                                     <option value="2">Option #2</option>
@@ -551,7 +551,7 @@
                               </div>
 
                               <div class="col-12 col-md-10">
-                                <select name="EppAssigmentJobTitleId" id="EppAssigmentJobTitleId" class="form-control">
+                                <select name="Txt_EppAssigmentDetail_Edit_JobTitleId" id="Txt_EppAssigmentDetail_Edit_JobTitleId" class="form-control">
                                     <option value="0">Please select</option>
                                     <option value="1">Option #1</option>
                                     <option value="2">Option #2</option>
@@ -569,7 +569,7 @@
                               </div>
                               
                               <div class="col-12 col-md-10">
-                                  <input type="text" class="form-control" id="EppAssigmentEditDate">
+                                  <input type="text" class="form-control" id="Txt_EppAssigmentDetail_Edit_AssigmentDate">
                               </div>
 
                             </div><!-- /.PROPERTY -->
@@ -585,14 +585,14 @@
                               
                               <!-- LEFT BUTTONS -->
                               <div class="table-data__tool-left">
-                                <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-info btn-sm">
-                                    <i class="fa fa-save"></i>&nbsp; Asignar EPP</button>
+                                <button id="Btn_EppAssigmentDetail_Create" type="button" class="btn btn-info btn-sm">
+                                  <i class="fa fa-save"></i>&nbsp; Asignar EPP</button>
                                 
-                                <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-info btn-sm">
-                                    <i class="fa fa-edit"></i>&nbsp; Editar EPP</button>
+                                <button id="Btn_EppAssigmentDetail_Edit" type="button" class="btn btn-info btn-sm">
+                                  <i class="fa fa-edit"></i>&nbsp; Editar EPP</button>
                                 
-                                <button id="BtnEppAssigmentEditDelete" type="button" class="btn btn-info btn-sm">
-                                    <i class="fa fa-trash"></i>&nbsp; Remover EPP</button>
+                                <button id="Btn_EppAssigmentDetail_Delete" type="button" class="btn btn-info btn-sm">
+                                  <i class="fa fa-trash"></i>&nbsp; Remover EPP</button>
                               </div><!-- /.LEFT BUTTONS -->
   
                               <!-- RIGTH BUTTONS -->
@@ -608,7 +608,7 @@
                           <div class="table-responsive m-b-40">
                             
                             <!-- TABLE -->
-                            <table id="DtEppAssigmentDetailEdit" class="table table-borderless table-data3">
+                            <table id="Dt_EppAssigmentDetail_Edit" class="table table-borderless table-data3">
                               
                               <!-- TABLE COLUMNS NAME -->
                               <thead>
@@ -661,10 +661,10 @@
                               <!-- RIGTH BUTTONS -->
                               <div class="table-data__tool-right">
   
-                                <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-info btn-sm">
+                                <button id="Btn_EppAssigmentDetail_Save" type="button" class="btn btn-info btn-sm">
                                     <i class="fa fa-save"></i>&nbsp; Guardar Cambios</button>
                                 
-                                <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-info btn-sm">
+                                <button id="Btn_EppAssigmentDetail_Cancel" type="button" class="btn btn-info btn-sm">
                                     <i class="fa fa-times-circle"></i>&nbsp; Cancelar y Regresar</button>
   
                               </div><!-- /.RIGTH BUTTONS -->
@@ -762,13 +762,13 @@ INSIDE DE PAGE
 
     
     //Set Input Values EppAssigment Edit
-    $('#EppAssigmentEmployeeId').select2({}).select2('val','1');
-    $('#EppAssigmentJobTitleId').select2({}).select2('val','2');
-    $('#EppAssigmentCompanyId').select2({}).select2('val','3');
-    $('#EppAssigmentProjectId').select2({}).select2('val','1');
+    $('#Txt_EppAssigmentDetail_Edit_EmployeeId').select2({}).select2('val','1');
+    $('#Txt_EppAssigmentDetail_Edit_JobTitleId').select2({}).select2('val','2');
+    $('#Txt_EppAssigmentDetail_Edit_CompanyId').select2({}).select2('val','3');
+    $('#Txt_EppAssigmentDetail_Edit_ProjectId').select2({}).select2('val','1');
 
     //Initializing datepicker and set date from DB
-    $('#EppAssigmentEditDate').datepicker(
+    $('#Txt_EppAssigmentDetail_Edit_AssigmentDate').datepicker(
     {
       format: "dd/mm/yyyy",
       todayBtn: "linked",
@@ -780,7 +780,7 @@ INSIDE DE PAGE
 
     
 
-
+//ESTRUCTURE [Component_name]_[Module_name]_[Accion_Name]_[Name]
 
 
 

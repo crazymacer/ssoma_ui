@@ -233,7 +233,7 @@ $(document).ready(function ()
     var ApiUrlEppAssigmentDetailEdit = "jsonEppAssigmentDetail.php";
     
     //EPP Assigment DataTableId
-    var DtEppAssigmentDetailId = "#DtEppAssigmentDetailEdit";
+    var DtEppAssigmentDetailId = "#Dt_EppAssigmentDetail_Edit";
     
     //Initializing Epp Assigment DataTable
     var DtEppAssigmentDetailEdit=$(DtEppAssigmentDetailId).DataTable(
@@ -285,9 +285,24 @@ $(document).ready(function ()
       }
     });
 
+    //Create Button
+    $('#Btn_EppAssigmentDetail_Create').click( function () 
+    {
 
+    });
 
-    $('#BtnEppAssigmentEditDelete').click( function () 
+    //Read Button
+    $('#Btn_EppAssigmentDetail_Read').click( function () 
+    {
+      
+    });
+
+    //Update Button
+    $('#Btn_EppAssigmentDetail_Update').click( function () 
+    {});
+
+    //Delete Button
+    $('#Btn_EppAssigmentDetail_Delete').click( function () 
     {
       swal({
         title: "Eliminar Item",
@@ -308,13 +323,84 @@ $(document).ready(function ()
       });
     });
 
+    //Edit Button
+    $('#Btn_EppAssigmentDetail_Edit').click( function () 
+    {
+      //Error message
+      swal("Oops!", "Primero debes seleccionar un EPP.", "warning");
 
+      //Success message
+      //swal("Genial!", "Cambios guardados!.", "success");
 
+    });
 
+    //Save Changes Button
+    $('#Btn_EppAssigmentDetail_Save').click( function () 
+    {
+      //Send success message
+      //SendSuccessMessageUpdateRedirect("Registro del EPP Actualizado")
 
+      //Validate message
+      var fruits = ["Banana", "Orange", "Apple", "Mango"];
+      SendValidationMessage(fruits);
 
+      //Error message
+      //swal("Ooops!", "Ocurrio algo, inténtalo nuevamente.", "warning");
 
+      //Error
 
+      ///
+    });
+
+    //Save Changes Button
+    $('#Btn_EppAssigmentDetail_Cancel').click( function () 
+    {
+      //Error message
+      swal("Ooops!", "Redirigir con los parametros.", "warning");
+    });
+
+    
+
+    /*  ===============================
+        ===== VALIDATION MESSAGES =====
+        =============================== */
+    
+    //Swal Messages
+    var MsgCreateSuccess    = "";
+    var MsgCreateWarning    = "";
+    var MsgCreateError      = "Ocurrio un problema al momento de registrar, inténtelo nuevamente.";
+    var MsgValidation       = "Necesita verificar los siguientes campos";
+
+    //Swal Title
+    var MsgSuccessTitle     = "Genial!";
+    var MsgWarningTitle     = "Cuidado!";
+    var MsgErrorTitle       = "Oops!";
+    var MsgValidationTitle  = "Oops!";
+    
+    //Swal funcionts
+    function SendSuccessMessageUpdate() 
+    {
+      swal("Genial!", "Los cambios fueron guardados.", "success");
+    }
+
+    function SendSuccessMessageUpdateRedirect(url) 
+    {
+      //Success message
+      swal("Genial!", "Registro actualizado!.", "success")
+      .then((value) => {
+        swal(`Redirigir a la url: `+url);
+      });
+    }
+
+    function SendValidationMessage(validationsArray)
+    {    
+      msg = MsgValidation+": \n\n ";
+      for (i = 0; i < validationsArray.length; i++) 
+      {
+        msg += "- " + validationsArray[i]+"\n";
+      }
+      swal(MsgValidationTitle, msg, "warning");
+    }
 
 
 
