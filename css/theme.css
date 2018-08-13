@@ -4847,11 +4847,12 @@ margin-bottom: 0;
 }
 
 .au-breadcrumb__list .active a {
-    color: #999;
+    color: #212529;
 }
 
 .au-breadcrumb__list .active a:hover {
     color: #333;
+    text-decoration: underline;
 }
 
 .au-breadcrumb2 {
