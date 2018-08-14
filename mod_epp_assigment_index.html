@@ -10,7 +10,7 @@
   <meta name="keywords" content="au theme template">
 
   <!-- Title Page-->
-  <title>Typography</title>
+  <title>Registros de Asignación de EPPs</title>
 
   <!-- Fontfaces CSS-->
   <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -28,6 +28,7 @@
   <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
   <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
   <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+  <link href="vendor/select2/select2-bootstrap.min.css"rel="stylesheet" >
   
   <link href="vendor/datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" media="all">
 
@@ -413,205 +414,201 @@
       </header>
       <!-- END HEADER DESKTOP-->
 
-      <!-- MAIN CONTENT-->
-      <div class="main-content">
-        <div class="section__content section__content--p30">
-          <div class="container-fluid">
-            <div class="row">
-
-              <div class="col-md-12">
 
 
-                <div class="card">
-                  <div class="card-header">
-                    <strong class="card-title"><div class="au-breadcrumb-content">
-                        <div class="au-breadcrumb-left">
-                           
-                            <ul class="list-unstyled list-inline au-breadcrumb__list">
-                                <li class="list-inline-item active">
-                                    <a href="#">Home</a>
-                                </li>
-                                <li class="list-inline-item seprate">
-                                    <span>/</span>
-                                </li>
-                                <li class="list-inline-item active">
-                                    <a href="#">Módulo EPP</a>
-                                </li>
-                                <li class="list-inline-item seprate">
-                                    <span>/</span>
-                                </li>
-                                <li class="list-inline-item">Registro de EPPs</li>
-                            </ul>
-                        </div>
-                        
-                    </div></strong>
-                  </div>
-
-                  <div class="card-body">
-                    
 
 
-                      <div class="container-fluid">
-                            
-                          <div class="row">
-                              <div class="col-md-12">
-                                
-                                      <div class="table-data__tool">
-                                          <div class="table-data__tool-left">
-                                              
-                                            
-                                            
-                                          </div>
-                                          <div class="table-data__tool-right">
-    
-                                              <button id="BtnEppAssigmentCreate" type="button" class="btn btn-secondary btn-sm" data-toggle="modal" data-target="#ModalEppCreate">
-                                                  <i class="fa fa-plus-circle"></i>&nbsp; Nuevo registro</button>
-    
-                                              <button id="BtnEppAssigmentRead" type="button" class="btn btn-secondary btn-sm">
-                                                  <i class="fa fa-list"></i>&nbsp; Ver Registro</button>
-                                              
-                                              <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-secondary btn-sm ">
-                                                  <i class="fa fa-edit"></i>&nbsp; Editar Registro</button>
-                                              <button id="BtnEppAssigmentDelete" type="button" class="btn btn-secondary btn-sm">
-                                                  <i class="fa fa-trash"></i>&nbsp;Eliminar Registro</button>
-                                             
-                                            
-                                          </div>
-                                      </div>
-                              </div>
-                          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+
+      <!-- MAIN SECTION -->
+      <div class="section__content section__content--p30">
         
-                          <div class="row m-t-30">
+        <!-- MAIN CONTAINER -->
+        <div class="container-fluid">
+          
+          <!-- MAIN ROW -->
+          <div class="row">
 
-                              <div class="col-md-12" style="margin-bottom: 30px;">
-                                    
-                                          
-                                  <div class="row">
-                                      <div class="col-md-3" style="margin-bottom: 10px;">
-                                          <select id="DtEppAssigmentCompanyFilter"  class="form-control select2">
-                                              <option value="0">Empresa</option>
-                                              <option value="1">AHREN Contratistas Generales S.A.C.</option>
-                                              <option value="2">Constructora AHREN S.A.</option>
-                                          </select>
-                                      </div>
-                                      <div class="col-md-3" style="margin-bottom: 10px;">
-                                          <select id="DtEppAssigmentProjectFilter" class=" form-control select2">
-                                            <option value="0">Proyecto</option>
-                                            <option value="1">SAP 14 Luricocha</option>
-                                            <option value="2">Primarias Uripa</option>
-                                          </select>
-                                          
-                                      </div>
-                                 
-                                      
-                                 
-                           
-     
-                                      <div class="col-md-4">
+            <!-- MAIN COLUMN -->
+            <div class="col-md-12">
+
+              <!-- CARD -->
+              <div class="card">
+
+                <!-- CARD HEADER-->
+                <div class="card-header">
+                  <strong class="card-title">
+
+                    <!-- BREADCRUMB -->
+                    <div class="au-breadcrumb-content">
+                      <div class="au-breadcrumb-left">
+                          <ul class="list-unstyled list-inline au-breadcrumb__list">
+                              <li class="list-inline-item active">
+                                  <a href="#">Home</a>
+                              </li>
+                              <li class="list-inline-item seprate">
+                                  <span>/</span>
+                              </li>
+                              <li class="list-inline-item active">
+                                  <a href="#">Módulo EPP</a>
+                              </li>
+                              <li class="list-inline-item seprate">
+                                  <span>/</span>
+                              </li>
+                              <li class="list-inline-item">Registro de EPPs</li>
+                          </ul>
+                      </div>
+                    </div><!-- /.BREADCRUMB -->
+
+                  </strong>
+                </div><!-- /.CARD HEADER-->
+
+                <!-- CARD BODY -->
+                <div class="card-body">
+                  
+                  <!-- CARD BODY CONTAINER -->
+                  <div class="container-fluid">
                     
-                                          <div class="input-daterange input-group col-md-12" id="datepicker">
-                                              
-                                             <div class="row">
-                                                <span class="input-group-addon  col-md-3" style="font-size: 14px;" ><label for="start"><i class="fa fa-calendar-alt"></i> Desde</label></span>
-                                                <input type="text" class="input-sm form-control-sm form-control col-md-3" id="FromDate" name="FromDate" >
-                                                <span class="input-group-addon  col-md-3" style="font-size: 14px;"><i class="fa fa-calendar-alt"></i> Hasta</span>
-                                                <input type="text" class="input-sm form-control-sm form-control col-md-3" name="end" >
-                                             </div>
-                                             
-                                     
-                                          </div>
-                                       </div>
+                    <!-- FILTERS AND MAIN BUTTONS -->
+                    <div class="row">
 
-
-
-<!--
-
-
-                                      <div class="input-daterange input-group" id="datepicker">
-                                          <div class="col-md-2" style="margin-bottom: 10px;">
-                                              <div class="input-group ">
-                                                  <div class="input-group-addon">
-                                                      <label for="dpd1"><i class="fa fa-calendar-alt"></i></label>
-                                                  </div>
-                                                  <input type="text" class="input-sm form-control-sm form-control" name="start" placeholder="Fecha Inicial"/>
-                                              </div>
-    
-                                          </div>
-                                          <div class="col-md-2" style="margin-bottom: 10px;">
-                                              <div class="input-group ">
-                                                  <div class="input-group-addon">
-                                                      <i class="fa fa-calendar-alt"></i>
-                                                  </div>
-                                                  <input type="text" class="input-sm form-control-sm form-control" name="end" placeholder="Fecha Final" />
-                                              </div>
-                                          </div>
-                                      </div>
--->
-
-
-
-
-
-
-
-
-
-
-
-                                      <div class="col col-md-2" style="margin-bottom: 10px;">
-                                          <button id="BtnEppAssigmentLoadData" type="button" class="btn btn-primary btn-sm btn-block">
-                                              <i class="fab fa-get-pocket"></i>&nbsp; Mostrar Registros</button>
-                                      </div>
-                                  </div>
-                                  
-                                
-                                
-                            
-                            
-                          </div>
-                            
-                              <div class="col-md-12">
-                                  <!-- DATA TABLE-->
-                                  <div class="table-responsive m-b-40">
-
-
-                                          <table id="DtEppAssigment" class="table table-borderless table-data3">
-                                                  <thead>
-                                                      <tr>
-                                                          <th>ID</th>
-                                                          <th>DNI</th>
-                                                          <th>Fecha de Entrega</th>
-                                                          <th>Nombres y Apellidos</th>
-                                                          <th>Empresa</th>
-                                                          <th>Cargo</th>
-                                                          <th class="text-center">Observación</th>
-                                                          
-                                                      </tr>
-                                                  </thead>
-                                                  <tbody>
-                                                  </tbody>
-                                                  </table>
-
-                                  </div>
-                                  <!-- END DATA TABLE-->
-
-                              </div>
-                          </div>
+                      <div class="col-md-12" style="margin: 30px 0;">
+                                    
+                        <form id="FrmEppAssigment" action="" method="POST" class="row">
                           
+                          <!-- FILTER -->
+                          <div class="col-md-3" style="margin-bottom: 10px;">
+                            <select name="TxtCompanyId"  class="form-control">
+                                <option value="0">Empresa</option>
+                                <option value="1">AHREN Contratistas Generales S.A.C.</option>
+                                <option value="2">Constructora AHREN S.A.</option>
+                            </select>
+                          </div><!-- /.FILTER -->
+
+                          <!-- FILTER -->
+                          <div class="col-md-3" style="margin-bottom: 10px;">
+                            <select name="TxtProjectId" class="form-control">
+                              <option value="0">Proyecto</option>
+                              <option value="1">SAP 14 Luricocha</option>
+                              <option value="2">Primarias Uripa</option>
+                            </select>
+                          </div><!-- /.FILTER -->
+                          
+                          <!-- FILTER -->
+                          <div class="col-md-4">
+      
+                            <div class="input-daterange input-group col-md-12" id="EppAssigmentDatePicker">
+                                
+                              <div class="row">
+                                <span class="input-group-addon  col-md-3" style="font-size: 14px;" ><label for="start"><i class="fa fa-calendar-alt"></i> Desde</label></span>
+                                <input type="text" class="input-sm form-control-sm form-control col-md-3" name="TxtFromDate" >
+                                <span class="input-group-addon  col-md-3" style="font-size: 14px;"><i class="fa fa-calendar-alt"></i> Hasta</span>
+                                <input type="text" class="input-sm form-control-sm form-control col-md-3" name="TxtToDate" >
+                              </div>
+
+                            </div>
+                          </div><!-- /.FILTER -->
+
+                          <!-- BUTTON  -->
+                          <div class="col col-md-2" style="margin-bottom: 10px;">
+                            <button name="BtnLoadData" type="button" class="btn btn-primary btn-sm btn-block">
+                              <i class="fab fa-get-pocket"></i>&nbsp; Mostrar Registros</button>
+                          </div><!-- BUTTON -->
+
+                        </form>
+                        
                       </div>
 
-                  </div>
-                </div>
+                    </div><!-- /.FILTERS AND MAIN BUTTONS -->
+                    
+                    <!--CONTENT  -->
+                    <div class="row m-t-30">
 
+                      <!-- ACTION BUTTONS -->
+                      <div class="col-md-12">
+                        
+                        <div class="table-data__tool">
+                          
+                          <!-- LEFT BUTTONS-->
+                          <div class="table-data__tool-left">
+                            <button id="BtnEppAssigmentCreate" type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#ModalEppCreate">
+                                <i class="fa fa-plus-circle"></i>&nbsp; Nuevo registro</button>
 
-              </div>
-            </div>
-          </div>
-        </div>
+                            <button id="BtnEppAssigmentRead" type="button" class="btn btn-info btn-sm">
+                                <i class="fa fa-list"></i>&nbsp; Ver Registro</button>
+                            
+                            <button id="BtnEppAssigmentUpdate" type="button" class="btn btn-info btn-sm ">
+                                <i class="fa fa-edit"></i>&nbsp; Editar Registro</button>
+                          </div><!-- /.LEFT BUTTONS-->
 
-        
-      
-      </div>
+                          <!-- RIGHT BUTTONS -->
+                          <div class="table-data__tool-right">
+                          </div><!-- RIGHT BUTTONS -->
+
+                        </div>
+  
+                      </div><!-- /.ACTION BUTTONS -->
+                      
+                      <!-- DATA TABLE-->
+                      <div class="col-md-12">
+
+                        <div class="table-responsive m-b-40">
+
+                          <!-- TABLE -->
+                          <table id="DtEppAssigment" class="table table-borderless table-data3">
+                            <thead>
+                              <tr>
+                                <th>ID</th>
+                                <th>DNI</th>
+                                <th>Fecha de Entrega</th>
+                                <th>Nombres y Apellidos</th>
+                                <th>Empresa</th>
+                                <th>Cargo</th>
+                                <th class="text-center">Observación</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table><!-- /.TABLE -->
+
+                        </div>
+
+                      </div><!-- END DATA TABLE-->
+
+                    </div><!--CONTENT  -->
+                      
+                  </div><!-- /.CARD BODY CONTAINER -->
+
+                </div><!-- /.CARD BODY -->
+
+              </div><!-- /.CARD -->
+
+            </div><!-- /.MAIN COLUMN -->
+
+          </div><!-- /.MAIN ROW -->
+
+        </div><!-- /.MAIN CONTAINER -->
+
+      </div><!-- /.MAIN SECTION -->
+
+    </div><!-- /.MAIN CONTENT-->
       
 
       
@@ -623,66 +620,6 @@
   </div>
   
  
-
-<!-- modal static -->
-<div class="modal fade" id="ModalEppCreate" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true" data-backdrop="static">
- <div class="modal-dialog modal-lg" role="document">
-   <div class="modal-content">
-     <div class="modal-header">
-       <h5 class="modal-title" id="staticModalLabel">Static Modal</h5>
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-         <span aria-hidden="true">&times;</span>
-       </button>
-     </div>
-     <div class="modal-body">
-        <table id="table_d" class="table table-borderless table-data3">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>DNI</th>
-                    <th>Fecha de Entrega</th>
-                    <th>Nombres</th>
-                    <th>Apellidos</th>
-                    <th>Cargo</th>
-                    <th class="text-center">Observación</th>
-                    
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>45126596</td>
-                    <td>12/08/2018</td>
-                    <td>Jhon</td>
-                    <td>Doe Smith</td>
-                    <td>Operario I</td>
-                    <td class="text-left">Cumplimiento con la norma de seguridad </td>
-                    
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>65854161</td>
-                    <td>10/08/2018</td>
-                    <td>Jane</td>
-                    <td>Black Door</td>
-                    <td>Auxiliar de Obra</td>
-                    <td class="text-left">Reposición de implementos</td>
-                    
-                </tr>
-                
-
-
-            </tbody>
-            </table>
-     </div>
-     <div class="modal-footer">
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-       <button type="button" class="btn btn-primary">Confirm</button>
-     </div>
-   </div>
- </div>
-</div>
-<!-- end modal static -->
 
 
 
@@ -702,32 +639,13 @@
   <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
   <script src="vendor/chartjs/Chart.bundle.min.js"></script>
   <script src="vendor/select2/select2.min.js"></script>
-
   <script src="vendor/datepicker/js/bootstrap-datepicker.js"></script>
   <script src="vendor/datepicker/locales/bootstrap-datepicker.es.min.js" charset="UTF-8"></script>
-
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js" type="text/javascript" charset="utf8" ></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="js/main.js"></script>
   <script src="js/site.js"></script>
 
-  <script>
   
-  $('#datepicker').datepicker(
-    {
-      format: 'dd/mm/yyyy',
-      language: 'es',
-      todayHighlight: true,
-      todayBtn: "linked",
-      autoclose: true
-});
-
-
-
-
-
-$('.select2').select2();
-
-  </script>
 </body>
 </html>

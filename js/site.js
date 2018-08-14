@@ -20,8 +20,16 @@ $(document).ready(function ()
   //DataTable Language json
   var DataTableLanguageUrl="datatable.json";
 
+  
+  //Initialize filters data
+  var FilterCompanyId = "0";
+  var FilterProjectId = "0";
+  var FilterFromDate  = "0";
+  var FilterToDate    = "0";
+
+
   /*  ============================================================================================= */
-  /*  ======================================= EPP ASSIGMENT ======================================= */
+  /*  =================================== EPP ASSIGMENT > INDEX =================================== */
   /*  ============================================================================================= */
 
   //EPP Assigment API Url
@@ -48,9 +56,10 @@ $(document).ready(function ()
       "url": ApiUrlEppAssigment,
       "data": function (d) 
       {
-        d.CompanyId = DtEppAssigmentCompanyFilter;
-        d.ProjectId = DtEppAssigmentProjectFilter;
-        d.Month     = DtEppAssigmentDateRangeFilter;
+        d.CompanyId = FilterCompanyId;
+        d.ProjectId = FilterProjectId;
+        d.FromDate  = FilterFromDate;
+        d.ToDate    = FilterToDate;
       },
       "type": "POST"
     },
@@ -77,20 +86,31 @@ $(document).ready(function ()
       $('.dataTables_empty').html('<div class="alert alert-warning" role="alert">Seleccione una Empresa, Proyecto y Periodo.</div>');
     }
   });
+
+  //Initialize Date Range filter
+  $('#EppAssigmentDatePicker').datepicker(
+  {
+      format: 'dd/mm/yyyy',
+      language: 'es',
+      todayHighlight: true,
+      todayBtn: "linked",
+      autoclose: true
+  });
   
   //Initializing Epp Assigment Variables
   if(DataTableExist(DtEppAssigmentId))
   {
-    //Initialize filters data
-    var DtEppAssigmentCompanyFilter   = "0";
-    var DtEppAssigmentProjectFilter   = "0";
-    var DtEppAssigmentDateRangeFilter = "0";
-    
+
     //Var to store row selected data
     var RowDataEppAssigment = null;
 
     //Hidign ID Column
     DtEppAssigment.column(0).visible(false);
+
+    $('#FrmEppAssigment select[name=TxtCompanyId]').select2({});
+    $('#FrmEppAssigment select[name=TxtProjectId]').select2({});
+    $('#FrmEppAssigment select[name=TxtFromDate]').select2({});
+    $('#FrmEppAssigment select[name=TxtToDate]').select2({});
   
   }
   
@@ -119,13 +139,13 @@ $(document).ready(function ()
   });
   
   //Show Epp Assigment Data
-  $('#BtnEppAssigmentLoadData').click( function () 
+  $('#FrmEppAssigment button[name=BtnLoadData]').click( function () 
   {
     //Get datatable filters 
     GetDtEppAssigmentFilters();
     
     //Check filters
-    if(DtEppAssigmentCompanyFilter == 0 | DtEppAssigmentProjectFilter == 0 | DtEppAssigmentDateRangeFilter == 0)
+    if(FilterCompanyId == 0 | FilterProjectId == 0 )
     {
       swal("Oops!", "Primero debes seleccionar una empresa, proyecto y periodo!", "warning");
     }
@@ -139,13 +159,13 @@ $(document).ready(function ()
   //OnClick BtnEppAssigmentRead
   $('#BtnEppAssigmentRead').click( function () 
   {
-      $('#ModalEppCreate').modal('show'); 
+    
   });
 
   //OnClick BtnEppAssigmentRead
-  $('#BtnEppAssigmentEdit').click( function () 
+  $('#FrmEppAssigment button[name=s]').click( function () 
   {
-      if(RowDataEppAssigment!=null)
+    if(RowDataEppAssigment!=null)
     {
       redirectToPage("EppAssigmentDetail/"+RowDataEppAssigment["Id"]);
       //console.log(RowDataEppAssigment["Id"]);
@@ -157,6 +177,14 @@ $(document).ready(function ()
     }
       
   });
+
+  function GetDtEppAssigmentFilters()
+  {
+    FilterCompanyId = $("#FrmEppAssigment select[name=TxtCompanyId]").val();
+    FilterProjectId = $("#FrmEppAssigment select[name=TxtProjectId]").val();
+    FilterFromDate  = $("#FrmEppAssigment select[name=TxtFromDate]").val();
+    FilterToDate    = $("#FrmEppAssigment select[name=TxtToDate]").val();
+  }
 
   /*  ============================================================================================= */
   /*  ================================ EPP ASSIGMENT > DETAIL > INDEX ============================= */
@@ -219,6 +247,29 @@ $(document).ready(function ()
       $('.dataTables_empty').html('<div class="alert alert-warning" role="alert">Seleccione una Empresa, Proyecto y Periodo.</div>');
     }
   });
+
+  $('#FrmEppAssigmentDetail button[name=BtnPrint]').click( function () 
+  {
+    //Send success message
+    SendSuccessMessage("Imprimiendo o generar PDF");
+
+  });
+
+  $('#FrmEppAssigmentDetail button[name=BtnEdit]').click( function () 
+  {
+    //Send success message
+    SendSuccessMessage("Redirigir a editar el registro");
+
+  });
+
+  $('#FrmEppAssigmentDetail button[name=BtnCancel]').click( function () 
+  {
+    //Send success message
+    SendSuccessMessage("Redirigir a la lista de registros con los datos del registro");
+
+  });
+
+
 
 
   /*  ============================================================================================= */
@@ -532,12 +583,7 @@ $(document).ready(function ()
   /*  ============================================================================================= */
 
   //Get Epp Assigment filters data
-  function GetDtEppAssigmentFilters()
-  {
-    DtEppAssigmentCompanyFilter   = $("#DtEppAssigmentCompanyFilter").val();
-    DtEppAssigmentProjectFilter   = $("#DtEppAssigmentProjectFilter").val();
-    DtEppAssigmentDateRangeFilter = $("#DtEppAssigmentDateRangeFilter").val();
-  }
+  
 
   function IsDatatableEmpty(DataTable)
   {
