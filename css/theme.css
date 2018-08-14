@@ -14745,3 +14745,13 @@ border-color: rgba(220, 53, 69, 0.8);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(220, 53, 69, 0.6);
   outline: 0 none;
 }
+
+.pdg-top-5
+{
+    padding-top: 5px !important;
+}
+
+.pdg-bottom-5
+{
+    padding-bottom: 5px !important;
+}

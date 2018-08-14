@@ -585,13 +585,13 @@
                               
                               <!-- LEFT BUTTONS -->
                               <div class="table-data__tool-left">
-                                <button id="Btn_EppAssigmentDetail_Create" type="button" class="btn btn-info btn-sm">
+                                <button id="BtnEppAssigmentDetailNew" type="button" class="btn btn-info btn-sm">
                                   <i class="fa fa-save"></i>&nbsp; Asignar EPP</button>
                                 
-                                <button id="Btn_EppAssigmentDetail_Edit" type="button" class="btn btn-info btn-sm">
+                                <button id="BtnEppAssigmentDetailEdit" type="button" class="btn btn-info btn-sm">
                                   <i class="fa fa-edit"></i>&nbsp; Editar EPP</button>
                                 
-                                <button id="Btn_EppAssigmentDetail_Delete" type="button" class="btn btn-info btn-sm">
+                                <button id="BtnEppAssigmentDetailDelete" type="button" class="btn btn-info btn-sm">
                                   <i class="fa fa-trash"></i>&nbsp; Remover EPP</button>
                               </div><!-- /.LEFT BUTTONS -->
   
@@ -644,7 +644,7 @@
                             </div>
                             
                             <div class="col-12 col-md-10">
-                              <textarea name="textarea-input" id="textarea-input" readonly="readonly"  rows="2" class="form-control">Entrega de EPPs Segun ley </textarea>
+                              <textarea name="Txt_EppAssigmentDetail_Edit_Observation" id="Txt_EppAssigmentDetail_Edit_Observation" rows="2" class="form-control">Entrega de EPPs Segun ley </textarea>
                             </div>
                           </div>
 
@@ -661,10 +661,10 @@
                               <!-- RIGTH BUTTONS -->
                               <div class="table-data__tool-right">
   
-                                <button id="Btn_EppAssigmentDetail_Save" type="button" class="btn btn-info btn-sm">
+                                <button id="BtnEppAssigmentDetailSave" type="button" class="btn btn-info btn-sm">
                                     <i class="fa fa-save"></i>&nbsp; Guardar Cambios</button>
                                 
-                                <button id="Btn_EppAssigmentDetail_Cancel" type="button" class="btn btn-info btn-sm">
+                                <button id="BtnEppAssigmentDetailCancel" type="button" class="btn btn-info btn-sm">
                                     <i class="fa fa-times-circle"></i>&nbsp; Cancelar y Regresar</button>
   
                               </div><!-- /.RIGTH BUTTONS -->
@@ -709,6 +709,294 @@
     <!-- END PAGE CONTAINER-->
 
   </div>
+
+
+  <!-- CREATE MODAL -->
+  <div class="modal fade" id="Modal_EppAssigmentDetail_New" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" data-backdrop="static">
+
+    <!-- MODAL TYPE-->
+    <div class="modal-dialog modal-lg" role="document">
+
+      <!-- MODAL CONTENT -->
+      <div class="modal-content">
+
+        <!-- MODAL HEADER -->
+        <div class="modal-header">
+          
+          <h5 class="modal-title" id="staticModalLabel">ASIGNAR EPP</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+
+        </div><!-- /.MODAL HEADER -->
+
+        <!-- MODAL BODY -->
+        <div class="modal-body">
+          
+          <!-- FORM -->
+          <form id="FrmEppAssigmentDetailCreate" action="" method="POST" class="form-horizontal">
+
+            <!-- INPUT CONTAINER -->
+            <div class="row form-group">
+
+              <!-- LABEL -->
+              <div class="col col-md-3 pdg-top-5">
+                <label for="TxtInternalCode" class="form-control-label">COD. INTERNO</label>
+              </div><!-- /.LABEL -->
+
+              <!-- INPUT -->
+              <div class="col-12 col-md-9">
+
+                <select name="TxtInternalCode" required class="form-control">
+                  <option value="0">Please select</option>
+                  <option value="1">Option #1</option>
+                  <option value="2">Option #2</option>
+                  <option value="3">Option #3</option>
+                </select>
+
+                <span class="help-block"></span>
+
+              </div><!-- /.INPUT -->
+
+            </div><!-- /.INPUT CONTAINER -->
+
+            <!-- INPUT CONTAINER -->
+            <div class="row form-group">
+              
+              <!-- LABEL -->
+              <div class="col col-md-3 pdg-top-5">
+                <label for="TxtEppId" class="form-control-label">EPP</label>
+              </div><!-- /.LABEL -->
+
+              <!-- INPUT -->
+              <div class="col-12 col-md-9">
+
+                <select name="TxtEppId" required class="form-control">
+                  <option value="0">Please select</option>
+                  <option value="1">Option #1</option>
+                  <option value="2">Option #2</option>
+                  <option value="3">Option #3</option>
+                </select>
+
+                <span class="help-block"></span>
+
+              </div><!-- /.INPUT -->
+
+            </div><!-- /.INPUT CONTAINER -->
+
+            <!-- INPUT CONTAINER -->
+            <div class="row form-group">
+              
+              <!-- LABEL -->
+              <div class="col col-sm-3 pdg-top-5">
+                <label for="TxtQuantity" class=" form-control-label">CANTIDAD</label>
+              </div><!-- /.LABEL -->
+
+              <!-- INPUT -->
+              <div class="col col-sm-9">
+                <input type="text" name ="TxtQuantity" class="input-sm form-control-sm form-control">
+              </div><!-- /.INPUT -->
+
+            </div><!-- /.INPUT CONTAINER -->
+
+            <!-- INPUT CONTAINER -->
+            <div class="row form-group">
+              
+              <!-- LABEL -->
+              <div class="col col-sm-3 pdg-top-5">
+                <label for="TxtExpiryDate" class=" form-control-label">FECHA DE VENCIMIENTO</label>
+              </div><!-- /.LABEL -->
+
+              <!-- INPUT -->
+              <div class="col col-sm-9">
+                <input type="text" name ="TxtExpiryDate" class="input-sm form-control-sm form-control">
+              </div><!-- /.INPUT -->
+
+            </div><!-- /.INPUT CONTAINER -->
+
+            <!-- INPUT CONTAINER -->
+            <div class="row form-group">
+              
+              <!-- LABEL -->
+              <div class="col col-md-3 pdg-top-5">
+                <label for="TxtAssigmentTypeId" class="form-control-label">TIPO DE ENTREGA</label>
+              </div><!-- /.LABEL -->
+
+              <!-- INPUT -->
+              <div class="col-12 col-md-9">
+
+                <select name="TxtAssigmentTypeId" required class="form-control">
+                  <option value="0">Please select</option>
+                  <option value="1">Option #1</option>
+                  <option value="2">Option #2</option>
+                  <option value="3">Option #3</option>
+                </select>
+
+                <span class="help-block"></span>
+
+              </div><!-- /.INPUT -->
+
+            </div><!-- /.INPUT CONTAINER -->
+
+          </form><!-- FORM -->
+
+        </div><!-- /.MODAL BODY -->
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancelar</button>
+          <button id="BtnEppAssigmentDetailCreateContinue" type="button" class="btn btn-sm btn-info">Asignar y Continuar</button>
+          <button id="BtnEppAssigmentDetailCreate" type="button" class="btn btn-sm btn-info">Asignar y Cerrar</button>
+        </div>
+
+      </div><!-- /.MODAL CONTENT -->
+
+    </div><!-- /.MODAL TYPE-->
+
+  </div><!-- /.CREATE MODAL-->
+
+  <!-- EDIT MODAL -->
+  <div class="modal fade" id="ModalEppAssigmentDetailEdit" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" data-backdrop="static">
+
+      <!-- MODAL TYPE-->
+      <div class="modal-dialog modal-lg" role="document">
+  
+        <!-- MODAL CONTENT -->
+        <div class="modal-content">
+  
+          <!-- MODAL HEADER -->
+          <div class="modal-header">
+            
+            <h5 class="modal-title" id="staticModalLabel">EDITAR EPP</h5>
+            
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+  
+          </div><!-- /.MODAL HEADER -->
+  
+          <!-- MODAL BODY -->
+          <div class="modal-body">
+            
+            <!-- FORM -->
+            <form id="FrmEppAssigmentDetailEdit" action="" method="POST" class="form-horizontal">
+  
+              <!-- INPUT CONTAINER -->
+              <div class="row form-group">
+  
+                <!-- LABEL -->
+                <div class="col col-md-3 pdg-top-5">
+                  <label for="TxtInternalCode" class="form-control-label">COD. INTERNO</label>
+                </div><!-- /.LABEL -->
+  
+                <!-- INPUT -->
+                <div class="col-12 col-md-9">
+  
+                  <select name="TxtInternalCode" required class="form-control">
+                    <option value="0">Please select</option>
+                    <option value="1">Option #1</option>
+                    <option value="2">Option #2</option>
+                    <option value="3">Option #3</option>
+                  </select>
+  
+                  <span class="help-block"></span>
+  
+                </div><!-- /.INPUT -->
+  
+              </div><!-- /.INPUT CONTAINER -->
+  
+              <!-- INPUT CONTAINER -->
+              <div class="row form-group">
+                
+                <!-- LABEL -->
+                <div class="col col-md-3 pdg-top-5">
+                  <label for="TxtEppId" class="form-control-label">EPP</label>
+                </div><!-- /.LABEL -->
+  
+                <!-- INPUT -->
+                <div class="col-12 col-md-9">
+  
+                  <select name="TxtEppId" required class="form-control">
+                    <option value="0">Please select</option>
+                    <option value="1">Option #1</option>
+                    <option value="2">Option #2</option>
+                    <option value="3">Option #3</option>
+                  </select>
+  
+                  <span class="help-block"></span>
+  
+                </div><!-- /.INPUT -->
+  
+              </div><!-- /.INPUT CONTAINER -->
+  
+              <!-- INPUT CONTAINER -->
+              <div class="row form-group">
+                
+                <!-- LABEL -->
+                <div class="col col-sm-3 pdg-top-5">
+                  <label for="TxtQuantity" class=" form-control-label">CANTIDAD</label>
+                </div><!-- /.LABEL -->
+  
+                <!-- INPUT -->
+                <div class="col col-sm-9">
+                  <input type="text" name ="TxtQuantity" class="input-sm form-control-sm form-control">
+                </div><!-- /.INPUT -->
+  
+              </div><!-- /.INPUT CONTAINER -->
+  
+              <!-- INPUT CONTAINER -->
+              <div class="row form-group">
+                
+                <!-- LABEL -->
+                <div class="col col-sm-3 pdg-top-5">
+                  <label for="TxtExpiryDate" class=" form-control-label">FECHA DE VENCIMIENTO</label>
+                </div><!-- /.LABEL -->
+  
+                <!-- INPUT -->
+                <div class="col col-sm-9">
+                  <input type="text" name ="TxtExpiryDate" class="input-sm form-control-sm form-control">
+                </div><!-- /.INPUT -->
+  
+              </div><!-- /.INPUT CONTAINER -->
+  
+              <!-- INPUT CONTAINER -->
+              <div class="row form-group">
+                
+                <!-- LABEL -->
+                <div class="col col-md-3 pdg-top-5">
+                  <label for="TxtAssigmentTypeId" class="form-control-label">TIPO DE ENTREGA</label>
+                </div><!-- /.LABEL -->
+  
+                <!-- INPUT -->
+                <div class="col-12 col-md-9">
+  
+                  <select name="TxtAssigmentTypeId" required class="form-control">
+                    <option value="0">Please select</option>
+                    <option value="1">Option #1</option>
+                    <option value="2">Option #2</option>
+                    <option value="3">Option #3</option>
+                  </select>
+  
+                  <span class="help-block"></span>
+  
+                </div><!-- /.INPUT -->
+  
+              </div><!-- /.INPUT CONTAINER -->
+  
+            </form><!-- FORM -->
+  
+          </div><!-- /.MODAL BODY -->
+  
+          <div class="modal-footer">
+            <button type="button" class="btn btn-sm btn-danger" data-dismiss="modal">Cancelar</button>
+            <button id="BtnEppAssigmentDetailUpdate" type="button" class="btn btn-sm btn-info">Asignar y Cerrar</button>
+          </div>
+  
+        </div><!-- /.MODAL CONTENT -->
+  
+      </div><!-- /.MODAL TYPE-->
+  
+    </div><!-- /.EDIT MODAL-->
   
  
 
@@ -766,6 +1054,14 @@ INSIDE DE PAGE
     $('#Txt_EppAssigmentDetail_Edit_JobTitleId').select2({}).select2('val','2');
     $('#Txt_EppAssigmentDetail_Edit_CompanyId').select2({}).select2('val','3');
     $('#Txt_EppAssigmentDetail_Edit_ProjectId').select2({}).select2('val','1');
+
+
+
+    
+
+
+
+
 
     //Initializing datepicker and set date from DB
     $('#Txt_EppAssigmentDetail_Edit_AssigmentDate').datepicker(

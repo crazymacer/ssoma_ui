@@ -285,75 +285,120 @@ $(document).ready(function ()
       }
     });
 
-    //Create Button
-    $('#Btn_EppAssigmentDetail_Create').click( function () 
+    //Initializing Epp Assigment Variables
+    if(DataTableExist(DtEppAssigmentDetailId))
     {
+      //Var to store row selected data
+      var RowDataEppAssigmentDetail = null;
+
+      //Hidign ID Column
+      DtEppAssigmentDetailEdit.column(0).visible(false);
+
+      //Initializing FrmEppAssigmentCreate inputs
+      $('#FrmEppAssigmentDetailCreate select[name=TxtAssigmentTypeId]').select2({});
+      $('#FrmEppAssigmentDetailCreate select[name=TxtInternalCode]').select2({});
+      $('#FrmEppAssigmentDetailCreate select[name=TxtEppId]').select2({});
+      $('#FrmEppAssigmentDetailCreate input[name=TxtExpiryDate]').datepicker(
+      {
+        format: "dd/mm/yyyy", todayBtn: "linked", language: "es", autoclose: true, todayHighlight: true
+      });
+    
+    }
+
+    //New EPP Assigment Button
+    $('#BtnEppAssigmentDetailNew').click( function () 
+    {
+      $('#Modal_EppAssigmentDetail_New').modal();
+    });
+
+    //Register EPP Assigment Button
+    $('#BtnEppAssigmentDetailCreate').click( function () 
+    {
+      //Success message
+      //SendCreateSuccessMessage();
+
+      //Validation message
+      //var fruits = ["Banana", "Orange", "Apple", "Mango"];
+      //SendValidationMessage(fruits);
+
+      //Error message
+      //SendCreateErrorMessage()
 
     });
 
-    //Read Button
-    $('#Btn_EppAssigmentDetail_Read').click( function () 
-    {
-      
-    });
-
-    //Update Button
-    $('#Btn_EppAssigmentDetail_Update').click( function () 
+     //Update EPP Assigment Button
+    $('#BtnEppAssigmentDetailUpdate').click( function () 
     {});
 
-    //Delete Button
-    $('#Btn_EppAssigmentDetail_Delete').click( function () 
-    {
-      swal({
-        title: "Eliminar Item",
-        text: "¿Está seguro de elimar este item?",
+    //Delete EPP Assigment Button
+    $('#BtnEppAssigmentDetailDelete').click( function () 
+    { 
+
+      //Send info message
+      SendDeleteInfoMessage();
+
+      //Send warning message
+      /*swal({
+        title: MsgWarningTitle,
+        text: MsgDeleteWarning,
         icon: "warning",
         buttons: ["No", "Si"],
         dangerMode: true,
       })
-      .then((willDelete) => {
-        if (willDelete) {
-          /*swal("Poof! Your imaginary file has been deleted!", {
-            icon: "success",
-          });*/
-        } 
-        /*else {
-          swal("Your imaginary file is safe!");
-        }*/
-      });
+      .then((willDelete) => 
+      {
+        //If clic on yes
+        if (willDelete) 
+        {
+         
+          //Send success message
+          //SendDeleteSuccessMessage();
+
+          //Send error message
+          //SendDeleteErrorMessage();
+          
+        }
+        
+      });*/
+      
+      
+
     });
 
     //Edit Button
-    $('#Btn_EppAssigmentDetail_Edit').click( function () 
+    $('#BtnEppAssigmentDetailEdit').click( function () 
     {
-      //Error message
-      swal("Oops!", "Primero debes seleccionar un EPP.", "warning");
+      //Launch Edit Modal
+      $('#ModalEppAssigmentDetailEdit').modal();
 
-      //Success message
-      //swal("Genial!", "Cambios guardados!.", "success");
+      //Send info message if no select a row
+      //SendEditInfoMessage();
+
+      //Send success message
+      //SendUpdateSuccessMessage();
+
+      //Send error message
+      //SendUpdatErrorMessage();
 
     });
 
     //Save Changes Button
-    $('#Btn_EppAssigmentDetail_Save').click( function () 
+    $('#BtnEppAssigmentDetailSave').click( function () 
     {
       //Send success message
-      //SendSuccessMessageUpdateRedirect("Registro del EPP Actualizado")
+      SendSaveSuccessMessageRedirect("Registro del EPP Actualizado");
 
       //Validate message
-      var fruits = ["Banana", "Orange", "Apple", "Mango"];
-      SendValidationMessage(fruits);
+      //var fruits = ["Banana", "Orange", "Apple", "Mango"];
+      //SendValidationMessage(fruits);
 
       //Error message
-      //swal("Ooops!", "Ocurrio algo, inténtalo nuevamente.", "warning");
+      //SendUpdatErrorMessage();
 
-      //Error
-
-      ///
     });
 
     //Save Changes Button
-    $('#Btn_EppAssigmentDetail_Cancel').click( function () 
+    $('#BtnEppAssigmentDetailCancel').click( function () 
     {
       //Error message
       swal("Ooops!", "Redirigir con los parametros.", "warning");
@@ -361,35 +406,58 @@ $(document).ready(function ()
 
     
 
-    /*  ===============================
-        ===== VALIDATION MESSAGES =====
-        =============================== */
+    /*  ============================================================================================= */
+    /*  ==================================== VALIDATION MESSAGES ==================================== */
+    /*  ============================================================================================= */
     
-    //Swal Messages
-    var MsgCreateSuccess    = "";
-    var MsgCreateWarning    = "";
-    var MsgCreateError      = "Ocurrio un problema al momento de registrar, inténtelo nuevamente.";
+    //Swal Titles
+    var MsgSuccessTitle     = "Excelente!";
+    var MsgInfoTitle        = "Oops, Faltó algo!";
+    var MsgWarningTitle     = "Advertencia!";
+    var MsgErrorTitle       = "Oops, Algo salió mal!";
+
+    //Create Messages
+    var MsgCreateSuccess    = "Los datos fueron registrados.";
+    var MsgCreateError      = "No se pudieron registrar los datos, inténtelo nuevamente.";
+
+    //Update Messages
+    var MsgUpdateSuccess    = "Los cambios fueron guardados.";
+    var MsgUpdateInfo       = "Primero debe seleccionar el registro a editar";
+    var MsgUpdateError      = "No se pudieron guardar los cambios, inténtelo nuevamente.";
+
+    //Delete Messages
+    var MsgDeleteSuccess    = "El elemento fue eliminado,";
+    var MsgDeleteInfo       = "Primero debe seleccionar un registro.";
+    var MsgDeleteWarning    = "¿Está seguro de elimar este elemento?";
+    var MsgDeleteError      = "No se pudo eliminar el elemento, inténtelo nuevamente.";
+    
+    //Validation Message
     var MsgValidation       = "Necesita verificar los siguientes campos";
 
-    //Swal Title
-    var MsgSuccessTitle     = "Genial!";
-    var MsgWarningTitle     = "Cuidado!";
-    var MsgErrorTitle       = "Oops!";
-    var MsgValidationTitle  = "Oops!";
-    
-    //Swal funcionts
-    function SendSuccessMessageUpdate() 
-    {
-      swal("Genial!", "Los cambios fueron guardados.", "success");
-    }
-
-    function SendSuccessMessageUpdateRedirect(url) 
+        
+    //General Messages
+    function SendSuccessMessageRedirect(MsgTitle, MsgText, url) 
     {
       //Success message
-      swal("Genial!", "Registro actualizado!.", "success")
+      swal(MsgTitle, MsgText, "success")
       .then((value) => {
         swal(`Redirigir a la url: `+url);
       });
+    }
+
+    function SendSuccessMessage(MsgText) 
+    {
+      swal(MsgSuccessTitle, MsgText, "success");
+    }
+
+    function SendErrorMessage(MsgText) 
+    {
+      swal(MsgErrorTitle, MsgText, "error");
+    }
+
+    function SendInfoMessage(Msgtext)
+    {
+      swal(MsgInfoTitle, Msgtext, "info");
     }
 
     function SendValidationMessage(validationsArray)
@@ -399,8 +467,61 @@ $(document).ready(function ()
       {
         msg += "- " + validationsArray[i]+"\n";
       }
-      swal(MsgValidationTitle, msg, "warning");
+      swal(MsgInfoTitle, msg, "info");
     }
+
+    //Create Messages
+    function SendCreateSuccessMessage()
+    {
+      SendSuccessMessage(MsgCreateSuccess);
+    }
+
+    function SendCreateErrorMessage()
+    {
+      SendErrorMessage(MsgCreateError);
+    }
+
+    //Edit and update Messages
+    function SendEditInfoMessage()
+    {
+      SendInfoMessage(MsgUpdateInfo);
+    }
+
+    function SendUpdateSuccessMessage()
+    {
+      SendSuccessMessage(MsgUpdateSuccess);
+    }
+
+    function SendUpdatErrorMessage()
+    {
+      SendErrorMessage(MsgUpdateError);
+    }
+   
+    //Delete Messages
+    function SendDeleteInfoMessage()
+    {
+      SendInfoMessage(MsgDeleteInfo);
+    }
+
+    function SendDeleteSuccessMessage()
+    {
+      SendSuccessMessage(MsgDeleteSuccess);
+    }
+
+    function SendDeleteErrorMessage() 
+    {
+      SendErrorMessage(MsgDeleteError);
+    }
+
+    //Save Messages
+    function SendSaveSuccessMessageRedirect(url) 
+    {
+      SendSuccessMessageRedirect(MsgSuccessTitle, MsgUpdateSuccess, url) 
+    }
+
+    
+
+    
 
 
 
